@@ -74,22 +74,38 @@ window.addEventListener('load', function () {
   /*                   Funcionality 7 - Delete a task [DELETE]                  */
   /* -------------------------------------------------------------------------- */
   function addDeleteTaskListener() {
-    const addDeleteTaskListenerBtn = document.querySelectorAll('.delete');
+    const deleteBtns = document.querySelectorAll('.delete');
 
-    addDeleteTaskListenerBtn.forEach((boton) => {
+    deleteBtns.forEach((boton) => {
       boton.addEventListener('click', function (event) {
-        const id = event.target.id;
-        const url = `${urlTasks}/${id}`;
+        swal({
+          title: '¿Estás seguro que quieres eliminar esta tarea?',
+          text: 'Una vez eliminada la tarea no se podrá recuperar.',
+          icon: 'warning',
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+            const id = event.target.id;
+            const url = `${urlTasks}/${id}`;
 
-        const settingsCambio = {
-          method: 'DELETE',
-          headers: {
-            authorization: token,
-            'Content-Type': 'application/json; charset=utf-8',
-          },
-        };
-        fetch(url, settingsCambio).then((response) => {
-          getUserTasks();
+            const settingsCambio = {
+              method: 'DELETE',
+              headers: {
+                authorization: token,
+                'Content-Type': 'application/json; charset=utf-8',
+              },
+            };
+            fetch(url, settingsCambio).then((response) => {
+              getUserTasks();
+              if (response.ok) {
+                swal({
+                  title: '¡La tarea fue eliminada exitosamente!',
+                  icon: 'success',
+                });
+              }
+            });
+          }
         });
       });
     });
