@@ -177,7 +177,7 @@ window.addEventListener('load', function () {
 
   logoutBtn.addEventListener('click', function () {
     const logout = confirm('¿Desea cerrar sesión?');
-    if (cerrarSesion) {
+    if (logout) {
       localStorage.clear();
       location.replace('./index.html');
     }
