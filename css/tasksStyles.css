@@ -234,3 +234,7 @@ footer {
 footer img {
     height: 100%;
 }
+
+.confirm {
+    background-color: #7cd1f9;
+}

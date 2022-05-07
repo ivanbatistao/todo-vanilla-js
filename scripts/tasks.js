@@ -79,7 +79,7 @@ window.addEventListener('load', function () {
     deleteBtns.forEach((boton) => {
       boton.addEventListener('click', function (event) {
         swal({
-          title: '¿Estás seguro que quieres eliminar esta tarea?',
+          title: '¿Estás seguro que deseas eliminar esta tarea?',
           text: 'Una vez eliminada la tarea no se podrá recuperar.',
           icon: 'warning',
           buttons: true,
@@ -192,11 +192,25 @@ window.addEventListener('load', function () {
   /* -------------------------------------------------------------------------- */
 
   logoutBtn.addEventListener('click', function () {
-    const logout = confirm('¿Desea cerrar sesión?');
-    if (logout) {
-      localStorage.clear();
-      location.replace('./index.html');
-    }
+    swal({
+      title: '¿Estás seguro que deseas cerrar sesión?',
+      dangerMode: true,
+      buttons: {
+        cancel: true,
+        confirm: {
+          text: 'OK',
+          value: true,
+          visible: true,
+          className: 'confirm',
+          closeModal: true,
+        },
+      },
+    }).then((willDelete) => {
+      if (willDelete) {
+        localStorage.clear();
+        location.replace('./index.html');
+      }
+    });
   });
 
   /* -------------------------------------------------------------------------- */
