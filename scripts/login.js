@@ -12,7 +12,12 @@ window.addEventListener('load', function () {
     fetch(`${url}/users/login`, settings)
       .then((response) => {
         if (response.ok != true) {
-          alert('Alguno de los datos es incorrecto.');
+          swal({
+            title: '¡Alguno de los datos es incorrecto!',
+            text: 'Revisa tu contraseña o tu correo electrónico e intenta de nuevo',
+            icon: 'error',
+            dangerMode: true,
+          });
         }
         return response.json();
       })
