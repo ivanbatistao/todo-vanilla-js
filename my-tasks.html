@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo App</title>
+    <link rel="icon" type="image/x-icon" href="./assets/DH_Logo_Black.png" />
+    <meta
+      name="description"
+      content="Digital House CTD | Proyecto integrador | FRONTEND II"
+    />
+
+    <!-- ----------------------------- CSS styles ----------------------------- -->
+    <link rel="stylesheet" href="./css/tasksStyles.css" />
+
+    <!-- ------------------- Fontawesome icons library -------------------- -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- my tasks logic -->
+    <script src="./scripts/tasks.js"></script>
+  </head>
+
+  <body>
+    <!-- navbar header -->
+    <header class="container">
+      <nav>
+        <h1>To-Do App</h1>
+
+        <div class="user-info">
+          <p>username</p>
+          <div class="user-image"></div>
+          <button id="logout">
+            <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <!-- tasks container -->
+      <form class="new-task">
+        <input id="new-task-input" type="text" placeholder="nueva tarea" />
+        <button type="submit">
+          <i class="fa-solid fa-pencil"></i> Crear tarea
+        </button>
+      </form>
+
+      <!-- empty container to hold pending tasks -->
+      <ul class="pending-tasks"></ul>
+
+      <h2>Tareas finalizadas <span id="completed-tasks-number">0</span></h2>
+      <!-- empty container to hold finished tasks -->
+      <ul class="completed-tasks"></ul>
+    </main>
+
+    <footer>
+      <img src="./assets/DH_Logo_White.png" alt="" />
+      <p>| Frontend II Team ♥</p>
+    </footer>
+  </body>
+</html>
