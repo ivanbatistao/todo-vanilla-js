@@ -32,7 +32,11 @@ window.addEventListener('load', function () {
       .then((response) => response.json())
       .then((data) => {
         const userName = document.querySelector('.user-info p');
-        userName.innerText = data.firstName;
+        userName.innerText = `${data.firstName
+          .charAt(0)
+          .toUpperCase()}${data.firstName.slice(1)} ${data.lastName
+          .charAt(0)
+          .toUpperCase()}${data.lastName.slice(1)}`;
       })
       .catch((error) => console.error(error));
   }
